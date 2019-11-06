@@ -29,7 +29,7 @@ void MainWindow::on_pushButton_Exit_clicked()
     QCoreApplication::quit();
 }
 
-bool Check_ext(const std::string& filename)
+bool checkExtension(const std::string& filename)
 {
     size_t pos = filename.rfind('.');
     if (pos == std::string::npos)
@@ -46,7 +46,7 @@ bool Check_ext(const std::string& filename)
 void MainWindow::on_pushButton_Next_clicked()
 {
     std::string file_path_std = file_path.toStdString();
-    if(Check_ext(file_path_std))
+    if(checkExtension(file_path_std))
     {
         // OPENCV TESTING
         cv::Mat img = cv::imread(file_path_std);
