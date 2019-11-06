@@ -18,8 +18,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 INCLUDEPATH += C:\opencv\build\include
 LIBS += C:\opencv\build\x64\vc14\lib\opencv_world411d.lib
 LIBS += C:\opencv\build\x64\vc14\lib\opencv_world411.lib
-# INCLUDEPATH += /usr/local/include/opencv4
-# LIBS += $(shell pkg-config opencv --libs) -lopencv_core -lopencv_imgcodecs -lopencv_highgui
 
 SOURCES += \
     main.cpp \
