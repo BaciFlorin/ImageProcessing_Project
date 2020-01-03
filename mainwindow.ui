@@ -136,9 +136,16 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_Next">
+       <widget class="QPushButton" name="pushButton_Andrei">
         <property name="text">
-         <string>Next</string>
+         <string>Andrei</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_Florin">
+        <property name="text">
+         <string>Florin</string>
         </property>
        </widget>
       </item>
@@ -168,7 +175,7 @@
      <x>0</x>
      <y>0</y>
      <width>737</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

@@ -43,14 +43,37 @@ bool checkExtension(const std::string& filename)
     return false;
 }
 
-void MainWindow::on_pushButton_Next_clicked()
+void MainWindow::on_pushButton_Andrei_clicked()
 {
     std::string file_path_std = file_path.toStdString();
     if(checkExtension(file_path_std))
     {
-        // OPENCV TESTING
+        ////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////
+        // COD ANDREI
         cv::Mat img = cv::imread(file_path_std);
-        cv::imshow("Flower", img);
+        cv::imshow("Image", img);
+        ////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////
+    }
+    else
+    {
+        QMessageBox::warning(this, "Picture error", "The picture must have a JPEG format! Please recheck your path.");
+    }
+}
+
+void MainWindow::on_pushButton_Florin_clicked()
+{
+    std::string file_path_std = file_path.toStdString();
+    if(checkExtension(file_path_std))
+    {
+        ////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////
+        // COD FLORIN
+        cv::Mat img = cv::imread(file_path_std);
+        cv::imshow("Image", img);
+        ////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////
     }
     else
     {
