@@ -136,16 +136,9 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_Andrei">
+       <widget class="QPushButton" name="pushButton_Start">
         <property name="text">
-         <string>Andrei</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_Florin">
-        <property name="text">
-         <string>Florin</string>
+         <string>START</string>
         </property>
        </widget>
       </item>

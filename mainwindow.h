@@ -20,9 +20,7 @@ private slots:
 
     void on_pushButton_Exit_clicked();
 
-    void on_pushButton_Andrei_clicked();
-
-    void on_pushButton_Florin_clicked();
+    void on_pushButton_Start_clicked();
 
     void on_lineEdit_Browse_editingFinished();
 

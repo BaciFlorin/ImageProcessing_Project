@@ -44,38 +44,26 @@ bool checkExtension(const std::string& filename)
     return false;
 }
 
-void MainWindow::on_pushButton_Andrei_clicked()
+void MainWindow::on_pushButton_Start_clicked()
 {
     std::string file_path_std = file_path.toStdString();
     if(checkExtension(file_path_std))
     {
+        ////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////
+        // THE IMAGE
+        Mat img = imread(file_path_std);
         ////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////
         // COD ANDREI
-        Mat img = imread(file_path_std);
         Mat result =  regionGrowing(img);
-        imshow("Result", result);
-        ////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////
-    }
-    else
-    {
-        QMessageBox::warning(this, "Picture error", "The picture must have a JPEG format! Please recheck your path.");
-    }
-}
-
-void MainWindow::on_pushButton_Florin_clicked()
-{
-    std::string file_path_std = file_path.toStdString();
-    if(checkExtension(file_path_std))
-    {
         ////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////
         // COD FLORIN
-        cv::Mat img = cv::imread(file_path_std);
-        cv::imshow("Image", img);
+
         ////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////
+        imshow("Result", result);
     }
     else
     {
