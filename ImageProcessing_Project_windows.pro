@@ -20,10 +20,14 @@ LIBS += C:\opencv\build\x64\vc14\lib\opencv_world411d.lib
 LIBS += C:\opencv\build\x64\vc14\lib\opencv_world411.lib
 
 SOURCES += \
+    image_2D_to_3D.cpp \
+    image_segmentation.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    image_2D_to_3D.h \
+    image_segmentation.h \
     mainwindow.h
 
 FORMS += \
