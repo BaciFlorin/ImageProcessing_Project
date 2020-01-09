@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "image_segmentation.h"
 #include <opencv2/opencv.hpp>
 #include <QFileDialog>
 #include <QDir>
@@ -51,8 +52,9 @@ void MainWindow::on_pushButton_Andrei_clicked()
         ////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////
         // COD ANDREI
-        cv::Mat img = cv::imread(file_path_std);
-        cv::imshow("Image", img);
+        Mat img = imread(file_path_std);
+        Mat result =  regionGrowing(img);
+        imshow("Result", result);
         ////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////
     }

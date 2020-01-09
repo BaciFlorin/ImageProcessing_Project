@@ -19,10 +19,14 @@ INCLUDEPATH += /usr/local/include/opencv4
 LIBS += $(shell pkg-config opencv --libs) -lopencv_core -lopencv_imgcodecs -lopencv_highgui
 
 SOURCES += \
+    image_2D_to_3D.cpp \
+    image_segmentation.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    image_2D_to_3D.h \
+    image_segmentation.h \
     mainwindow.h
 
 FORMS += \
