@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 #include "image_segmentation.h"
 #include "image_2D_to_3D.h"
-#include <opencv2/opencv.hpp>
 #include <QFileDialog>
 #include <QDir>
 #include <QMessageBox>
@@ -21,9 +20,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_Browse_clicked()
 {
-    file_path_filter = "JPEG Files (*.jpg)";
-    file_path = QFileDialog::getOpenFileName(this, "Select an image", QDir::homePath(), file_path_filter);
-    ui->lineEdit_Browse->setText(file_path);
+    file_path_open = QFileDialog::getOpenFileName(this, tr("Select an image"), QDir::homePath(), file_path_filter);
+    ui->lineEdit_Browse->setText(file_path_open);
+    ui->pushButton_Export->setEnabled(false);
 }
 
 void MainWindow::on_pushButton_Exit_clicked()
@@ -47,26 +46,24 @@ bool checkExtension(const std::string& filename)
 
 void MainWindow::on_pushButton_Start_clicked()
 {
-    std::string file_path_std = file_path.toStdString();
-    if(checkExtension(file_path_std))
+    std::string file_path_open_std = file_path_open.toStdString();
+    if(checkExtension(file_path_open_std))
     {
-        ////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////
         /// THE IMAGE
-        Mat img = imread(file_path_std);
-        ////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////
-        /// ANDREI'S CODE
+        Mat img = imread(file_path_open_std);
+
+        /// IMAGE SEGMENTATION
         Mat image_seg =  regionGrowing(img);
-        ////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////
-        /// FLORIN'S CODE
+
+        /// IMAGE 3D TRANSFORMATION
         Mat rimage = changeDirection(img, image_seg);
-        Mat result = transformation_3D(img, rimage);
-        ////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////
+        result = transformation_3D(img, rimage);
+
+        /// ENABLE EXPORTING
+        ui->pushButton_Export->setEnabled(true);
+
         /// RESULT
-        imshow("Result", result);
+        cv::imshow("Result", result);
     }
     else
     {
@@ -74,7 +71,21 @@ void MainWindow::on_pushButton_Start_clicked()
     }
 }
 
+void MainWindow::on_pushButton_Export_clicked()
+{
+    QString file_path_save = QFileDialog::getSaveFileName(this, tr("Save File"), QDir::homePath(), file_path_filter);
+    std::string file_path_save_std = file_path_save.toStdString();
+    if(checkExtension(file_path_save_std))
+    {
+        cv::imwrite( file_path_save_std, result);
+    }
+    else
+    {
+        QMessageBox::warning(this, "Picture error", "The picture must have a JPEG format and end in .jpg!");
+    }
+}
+
 void MainWindow::on_lineEdit_Browse_editingFinished()
 {
-    file_path = ui->lineEdit_Browse->text();
+    file_path_open = ui->lineEdit_Browse->text();
 }

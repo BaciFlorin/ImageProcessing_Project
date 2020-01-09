@@ -1,6 +1,4 @@
-#ifndef IMAGE_SEGMENTATION_H
-#define IMAGE_SEGMENTATION_H
-#include <iostream>
+#pragma once
 #include <stack>
 #include <cassert>
 #include <opencv2/opencv.hpp>
@@ -30,7 +28,3 @@ const Point PointShift2D[8] =
 int readImage(String path,Mat &image);
 void grow(cv::Mat& src, cv::Mat& dest, cv::Mat& mask, cv::Point seed, int threshold);
 Mat regionGrowing(Mat src);
-
-
-
-#endif // IMAGE_SEGMENTATION_H

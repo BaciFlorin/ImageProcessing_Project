@@ -1,17 +1,5 @@
 #include"image_segmentation.h"
 
-int readImage(String path,Mat &image)
-{
-    image = imread(path, IMREAD_COLOR);
-    if (!image.data)
-    {
-        cout << "Could not open or find the image" << std::endl;
-        return -1;
-    }
-    return 1;
-}
-
-
 void grow(Mat& src, Mat& dest, Mat& mask, Point seed, int threshold)
 {
 
@@ -51,13 +39,6 @@ Mat regionGrowing(Mat src)
 {
     Mat returnValue;
     assert(!src.empty());
-    //used just for test
-    /*if (src.cols > 500 || src.rows > 500)
-    {
-        resize(src, src, Size(0, 0), 0.5, 0.5); // resize for speed
-    }*/
-    //imshow("src", src);
-
 
     //ready for seed grow
     int min_region_area = int(min_region_area_factor * src.cols * src.rows);  // small region will be ignored
