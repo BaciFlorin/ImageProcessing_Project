@@ -16,8 +16,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 INCLUDEPATH += C:\opencv\build\include
-LIBS += C:\opencv\build\x64\vc14\lib\opencv_world411d.lib
-LIBS += C:\opencv\build\x64\vc14\lib\opencv_world411.lib
+LIBS += C:\opencv\build\x64\vc14\lib\opencv_world412d.lib
+LIBS += C:\opencv\build\x64\vc14\lib\opencv_world412.lib
 
 SOURCES += \
     ImageSegmentation.cpp \
